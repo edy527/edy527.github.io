@@ -1,1 +1,1 @@
-# edy527.githubpage.io
+# edy527.github.io
