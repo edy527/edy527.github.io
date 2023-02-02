@@ -33,7 +33,7 @@
  }
 /* BUTONS */
 
-.menu-link {
+.menu .menu-link {
 	box-shadow: -4px 4px 0px 0px #0f140e;
 	background-color:#FFEA20;
 	border:2px solid #393d39;
@@ -43,22 +43,14 @@
 	font-size:20px;
 	padding:16px 31px;
 	text-decoration:none;
+   color: #0f140e;
 }
 .menu-link:hover {
 	background-color:#191a18;
+   color: #FFEA20;
 }
+.menu-link:hover,
 .menu-link:active {
 	position:relative;
 	top:1px;
-}
-
-.menu-link:visited{
-    color: #0f140e;
-}
-
-footer{
-    
-}
-.text-footer{
-
 }
