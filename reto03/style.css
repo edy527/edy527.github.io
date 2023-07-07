@@ -1,0 +1,92 @@
+:root{
+  --orange: #d95550;
+  --lightOrange: #dd6662;
+  --veryLightOrange: #f89e8b;
+  --gray: #55557b;
+  --white: #fff; 
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: var(--orange);
+}
+
+h1{
+  margin-top: 200px;
+  color: var(--white);
+  text-align: center;
+}
+
+form{
+  border: 1px solid black;
+  width: 400px;
+  margin: 45px auto;
+  text-align: center;
+}
+
+form input[type="text"]{
+  background-color: var(--orange);
+  color: var(--white);
+  border-style: none;
+  font-size: 1.5em;
+}
+
+form input[type="text"]:focus{
+  outline: none;
+}
+
+form input[type="text"]::placeholder{
+  color: var(--veryLightOrange);
+}
+
+form input[type="submit"]{
+  font-size: 2em;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-style: none;
+  color: var(--orange);
+}
+
+form input[type="submit"]:hover{
+  background-color: var(--veryLightOrange);
+  cursor: pointer;
+  color: var(--white);
+}
+
+.list-container{
+  width: 400px;
+  margin: 0 auto;
+}
+
+.task-container{
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding: 16px;
+  border-radius: 4px;
+  font-size: 1.1em;
+  font-weight: 500;
+  columns: var(--gray);
+}
+
+.closeBtn{
+  width: 15px;
+  height: 15px;
+}
+.closeBtn:hover{
+  cursor: pointer;
+}
+
+#stats{
+  margin-top: 25px;
+  font-size: 1.3em;
+  color: var(--veryLightOrange);
+  text-align: center;
+}
