@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LuchiniPanchini · Pancho bar · Próximamente</title>
+<meta name="description" content="LuchiniPanchini — pancho bar. Panchos por unidad con toppings variados en la feria de Florencio Varela los miércoles, y pancho bar libre para tus eventos privados. ¡Muy pronto arrancamos!" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="LuchiniPanchini · Pancho bar" />
+<meta property="og:description" content="Panchos por unidad en la feria y pancho bar libre en tus eventos. ¡Ya casi arrancamos! 🌭" />
+<meta property="og:locale" content="es_AR" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bungee&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --red:#C8402F;        /* Pantone 18-1553 · Aurora Red */
+    --red-deep:#A32E20;
+    --aqua:#BFE0D8;       /* Pantone 12-5410 · Aqua Glass */
+    --aqua-deep:#4FA294;
+    --cream:#F4EAD3;
+    --cream-2:#EFDFC0;
+    --ink:#1C1815;
+    --white:#FFFDF7;
+    --shadow:0 .35rem 0 rgba(28,24,21,.9);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Fredoka",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.55;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- 70s napkin pattern (aqua) ---------- */
+  .napkin-bg{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 30%, rgba(79,162,148,.10) 31%, transparent 33%),
+      radial-gradient(circle at 0 0, rgba(200,64,47,.06) 8%, transparent 9%),
+      radial-gradient(circle at 100% 100%, rgba(200,64,47,.06) 8%, transparent 9%);
+    background-size:44px 44px, 44px 44px, 44px 44px;
+    opacity:.9;
+  }
+
+  .container{width:min(1080px,92vw);margin-inline:auto}
+
+  /* ---------- helpers ---------- */
+  .eyebrow{
+    font-family:"Bungee",sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:clamp(.7rem,2vw,.85rem);
+  }
+  .pill{
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.5rem 1.1rem;
+    border-radius:999px;
+    border:2.5px solid var(--ink);
+    background:var(--white);
+    box-shadow:var(--shadow);
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    background:var(--red);
+    color:var(--cream);
+    border-block:3px solid var(--ink);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:.55rem 0;
+  }
+  .marquee-track{
+    display:inline-block;
+    font-family:"Bungee",sans-serif;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    font-size:.95rem;
+    animation:scroll 26s linear infinite;
+  }
+  .marquee-track span{padding-inline:1.1rem}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:clamp(2.5rem,7vw,5rem) 0 clamp(3rem,8vw,6rem);
+    text-align:center;
+    overflow:hidden;
+  }
+  .sunburst{
+    position:absolute;top:50%;left:50%;
+    width:150vmax;height:150vmax;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+    background:repeating-conic-gradient(from 0deg at 50% 50%,
+      rgba(255,253,247,.55) 0deg 9deg,
+      transparent 9deg 18deg);
+    animation:spin 90s linear infinite;
+    opacity:.6;
+  }
+  @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+  .badge-soon{
+    font-family:"Bungee",sans-serif;
+    color:var(--red);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+  .dot{width:.55rem;height:.55rem;border-radius:999px;background:var(--red);animation:blink 1.4s steps(1) infinite}
+  @keyframes blink{50%{opacity:.25}}
+
+  .wordmark{
+    font-family:"Bagel Fat One",cursive;
+    font-weight:400;
+    line-height:.92;
+    margin:clamp(1.2rem,3vw,1.8rem) 0 .4rem;
+    font-size:clamp(3rem,11vw,7.5rem);
+    color:var(--red);
+    text-shadow:
+      .06em .06em 0 var(--ink),
+      -.02em -.02em 0 var(--white);
+  }
+  .wordmark .line2{color:var(--aqua-deep);display:block}
+
+  .tagline{
+    display:inline-block;
+    font-family:"Bungee",sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:clamp(.85rem,2.8vw,1.25rem);
+    background:var(--ink);
+    color:var(--cream);
+    padding:.4rem 1.1rem .35rem;
+    border-radius:.6rem;
+    transform:rotate(-2deg);
+  }
+
+  .hero-dog{font-size:clamp(2.4rem,9vw,4rem);margin-top:1.6rem;filter:drop-shadow(.15rem .2rem 0 rgba(28,24,21,.35))}
+  .hero-dog span{display:inline-block;animation:wobble 3s ease-in-out infinite}
+  .hero-dog span:nth-child(2){animation-delay:.4s}
+  .hero-dog span:nth-child(3){animation-delay:.8s}
+  @keyframes wobble{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-.5rem) rotate(4deg)}}
+
+  .lead{
+    max-width:44ch;margin:1.6rem auto 0;
+    font-size:clamp(1.05rem,3vw,1.3rem);
+    font-weight:500;
+  }
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    font-family:"Bungee",sans-serif;
+    font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink);
+    padding:.85rem 1.5rem;
+    border-radius:999px;
+    border:3px solid var(--ink);
+    background:var(--aqua);
+    box-shadow:var(--shadow);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn.red{background:var(--red);color:var(--cream)}
+  .btn:hover{transform:translate(-.1rem,-.15rem);box-shadow:0 .5rem 0 rgba(28,24,21,.9)}
+  .btn:active{transform:translate(0,.2rem);box-shadow:0 .1rem 0 rgba(28,24,21,.9)}
+  .ig-ic{width:1.15em;height:1.15em;fill:currentColor;flex:none}
+
+  /* ---------- WAVE DIVIDER ---------- */
+  .wave{display:block;width:100%;height:auto;margin-bottom:-6px}
+
+  /* ---------- SECTION ---------- */
+  section.block{padding:clamp(3rem,8vw,5.5rem) 0}
+  .block.dark{background:var(--ink);color:var(--cream)}
+  .block.aqua{background:var(--aqua)}
+
+  .section-head{text-align:center;max-width:46ch;margin:0 auto clamp(2rem,5vw,3rem)}
+  .section-head .eyebrow{color:var(--red)}
+  .block.dark .section-head .eyebrow{color:var(--aqua)}
+  .section-head h2{
+    font-family:"Bagel Fat One",cursive;font-weight:400;
+    font-size:clamp(1.9rem,6vw,3rem);
+    line-height:1.05;margin-top:.6rem;
+  }
+
+  /* ---------- CARDS ---------- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+  .card{
+    background:var(--white);
+    color:var(--ink);
+    border:3px solid var(--ink);
+    border-radius:1.4rem;
+    padding:2rem 1.6rem;
+    box-shadow:.5rem .5rem 0 rgba(28,24,21,.9);
+    position:relative;
+    overflow:hidden;
+  }
+  .card::before{
+    content:"";position:absolute;inset:.55rem;
+    border:2px dashed rgba(79,162,148,.55);
+    border-radius:1rem;pointer-events:none;
+  }
+  .card .ic{font-size:2.6rem;line-height:1;display:block;margin-bottom:.8rem}
+  .card h3{font-family:"Bungee",sans-serif;font-size:1.15rem;line-height:1.2;text-transform:uppercase;margin-bottom:.7rem;color:var(--red)}
+  .card p{font-weight:500}
+  .card .tag{
+    display:inline-block;margin-top:1rem;
+    font-family:"Bungee",sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;
+    background:var(--aqua);border:2px solid var(--ink);border-radius:999px;padding:.35rem .8rem;
+  }
+
+  /* ---------- HOW IT WORKS (dark) ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+  .step{text-align:center;padding:.5rem}
+  .step .num{
+    font-family:"Bagel Fat One",cursive;font-size:2.6rem;color:var(--aqua);
+    -webkit-text-stroke:2px var(--cream);
+    display:block;margin-bottom:.4rem;
+  }
+  .step h4{font-family:"Bungee",sans-serif;font-size:1rem;text-transform:uppercase;margin-bottom:.5rem}
+  .step p{font-weight:500;opacity:.9;max-width:26ch;margin-inline:auto}
+
+  /* ---------- FERIA highlight ---------- */
+  .feria{
+    background:var(--red);color:var(--cream);
+    border:3px solid var(--ink);border-radius:1.6rem;
+    box-shadow:.6rem .6rem 0 rgba(28,24,21,.9);
+    padding:clamp(2rem,5vw,3rem);
+    display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;
+  }
+  .feria .big-day{
+    font-family:"Bagel Fat One",cursive;font-size:clamp(2.4rem,8vw,4rem);line-height:.9;
+    text-align:center;
+    background:var(--cream);color:var(--red);
+    border:3px solid var(--ink);border-radius:1.1rem;
+    padding:1rem 1.2rem;
+  }
+  .feria .big-day small{display:block;font-family:"Bungee",sans-serif;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-top:.35rem}
+  .feria h3{font-family:"Bungee",sans-serif;font-size:clamp(1.1rem,3.5vw,1.5rem);text-transform:uppercase;margin-bottom:.6rem}
+  .feria p{font-weight:500}
+  .feria .hours{
+    display:inline-block;margin-top:.9rem;
+    font-family:"Bungee",sans-serif;font-size:.85rem;letter-spacing:.05em;
+    background:var(--ink);color:var(--aqua);border-radius:999px;padding:.4rem 1rem;
+  }
+  @media(max-width:520px){.feria{grid-template-columns:1fr;text-align:center}}
+
+  /* ---------- CTA / FOLLOW ---------- */
+  .follow{text-align:center}
+  .follow h2{font-family:"Bagel Fat One",cursive;font-weight:400;font-size:clamp(1.9rem,6vw,3.2rem);line-height:1.05;color:var(--red)}
+  .follow p{max-width:40ch;margin:1rem auto 0;font-weight:500;font-size:1.1rem}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--cream);text-align:center;padding:2.5rem 0}
+  footer .foot-mark{font-family:"Bagel Fat One",cursive;font-size:1.5rem;color:var(--aqua)}
+  footer .small{opacity:.7;font-size:.85rem;margin-top:.6rem}
+  footer a{color:var(--aqua);text-decoration:none;font-weight:600}
+  footer a:hover{text-decoration:underline}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="napkin-bg" aria-hidden="true"></div>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>🌭 Panchos por unidad</span><span>✦</span><span>Toppings variados</span><span>✦</span><span>Pancho bar libre en eventos</span><span>✦</span><span>Todos los miércoles</span><span>✦</span>
+    <span>🌭 Panchos por unidad</span><span>✦</span><span>Toppings variados</span><span>✦</span><span>Pancho bar libre en eventos</span><span>✦</span><span>Todos los miércoles</span><span>✦</span>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="sunburst" aria-hidden="true"></div>
+  <div class="container">
+    <span class="pill eyebrow badge-soon"><span class="dot" aria-hidden="true"></span> Próximamente</span>
+
+    <h1 class="wordmark">Luchini<span class="line2">Panchini</span></h1>
+    <span class="tagline">Pancho bar</span>
+
+    <div class="hero-dog" aria-hidden="true"><span>🌭</span><span>🌭</span><span>🌭</span></div>
+
+    <p class="lead">¡Bienvenidos al mundo Luchini Panchini! Todavía no arrancamos, pero ya estamos afilando las pancheras para llenarte el pancho. 🎉</p>
+
+    <div class="cta-row">
+      <a class="btn red" href="https://www.instagram.com/luchinipanchini/" target="_blank" rel="noopener" aria-label="Seguinos en Instagram @luchinipanchini">
+        <svg class="ig-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84Zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.4-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg>
+        Seguinos en Insta
+      </a>
+      <a class="btn" href="#modalidades">Cómo va a ser</a>
+    </div>
+  </div>
+</header>
+
+<!-- wave -->
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+  <path fill="#1C1815" d="M0,30 C120,60 240,0 360,20 C480,40 600,60 720,40 C840,20 960,0 1080,20 C1200,40 1320,50 1440,30 L1440,60 L0,60 Z"></path>
+</svg>
+
+<!-- ===== CÓMO FUNCIONA ===== -->
+<section class="block dark" id="como">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Así se arma</span>
+      <h2>Armá tu pancho 🌭</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">1</span>
+        <h4>Pedí el tuyo</h4>
+        <p>Panchos por unidad, recién hechos y con toda la onda.</p>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <h4>Sumale toppings</h4>
+        <p>Un montón de toppings variados para armar tu combinación perfecta.</p>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <h4>A disfrutar</h4>
+        <p>Simple, rico y bien casero. Así de fácil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- wave flip -->
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" style="transform:scaleY(-1);margin-top:-6px;margin-bottom:0">
+  <path fill="#1C1815" d="M0,30 C120,60 240,0 360,20 C480,40 600,60 720,40 C840,20 960,0 1080,20 C1200,40 1320,50 1440,30 L1440,60 L0,60 Z"></path>
+</svg>
+
+<!-- ===== MODALIDADES ===== -->
+<section class="block" id="modalidades">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Dónde encontrarnos</span>
+      <h2>Dos formas de disfrutar</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic" aria-hidden="true">🛒</span>
+        <h3>Todos los miércoles en la feria</h3>
+        <p>Tenés nuestro puesto en la feria de Florencio Varela. Panchos por unidad, con toppings variados para armarlo como más te guste. Pasá, saludá y llevate el tuyo recién hecho.</p>
+        <span class="tag">Feria semanal</span>
+      </article>
+      <article class="card">
+        <span class="ic" aria-hidden="true">🎈</span>
+        <h3>Pancho bar libre en eventos</h3>
+        <p>¿Cumple, junta o festejo? Para eventos privados llevamos el pancho bar libre: todos los panchos que quieras por un tiempo, a un precio por persona. Vos ponés la fiesta, nosotros los panchos.</p>
+        <span class="tag">Eventos privados</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FERIA HIGHLIGHT ===== -->
+<section class="block aqua">
+  <div class="container">
+    <div class="feria">
+      <div class="big-day">MIÉ<small>Todas las semanas</small></div>
+      <div>
+        <h3>Feria de Florencio Varela</h3>
+        <p>Los miércoles estamos ahí con el puesto: panchos por unidad, toppings variados y las servilletas bien setenteras. Vení a probar los primeros panchos de Luchini Panchini.</p>
+        <span class="hours">🕘 De 9 a 15 hs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOLLOW ===== -->
+<section class="block follow">
+  <div class="container">
+    <h2>¡Se viene, se viene! 🌭✨</h2>
+    <p>Todavía no arrancamos, pero falta re poco. Seguinos para enterarte de nuestro primer miércoles en la feria y todas las novedades.</p>
+    <div class="cta-row">
+      <a class="btn red" href="https://www.instagram.com/luchinipanchini/" target="_blank" rel="noopener" aria-label="Seguinos en Instagram @luchinipanchini">
+        <svg class="ig-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84Zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.4-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg>
+        @luchinipanchini
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="foot-mark">LuchiniPanchini</div>
+    <p class="small">Pancho bar · Próximamente</p>
+    <p class="small" style="margin-top:1rem">
+      <a href="https://www.instagram.com/luchinipanchini/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem">
+        <svg class="ig-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 3.68A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84Zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.4-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg>
+        @luchinipanchini
+      </a>
+    </p>
+    <p class="small">© <span id="year"></span> LuchiniPanchini — Hecho con 🌭 y mucha onda.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
