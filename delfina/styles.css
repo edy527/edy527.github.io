@@ -87,6 +87,8 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--serif);
   font-size: 1.15rem;
   letter-spacing: .01em;
+  position: relative;
+  z-index: 60; /* por encima del menú desplegable */
 }
 .nav__links { display: none; gap: 2rem; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; }
 .nav__links a { color: var(--ink-soft); transition: color .25s; }
@@ -96,6 +98,8 @@ a { color: inherit; text-decoration: none; }
   display: flex; flex-direction: column; gap: 5px;
   width: 34px; height: 34px; align-items: center; justify-content: center;
   background: none; border: 0; cursor: pointer; padding: 0;
+  position: relative;
+  z-index: 60; /* por encima del menú para poder cerrarlo */
 }
 .nav__toggle span {
   width: 22px; height: 1.5px; background: var(--ink);
@@ -103,6 +107,15 @@ a { color: inherit; text-decoration: none; }
 }
 .nav.is-open .nav__toggle span:nth-child(1) { transform: translateY(3.25px) rotate(45deg); }
 .nav.is-open .nav__toggle span:nth-child(2) { transform: translateY(-3.25px) rotate(-45deg); }
+
+/* Con el menú abierto, quitamos el backdrop-filter: si no, rompe el
+   position:fixed del panel y el menú no se ve al estar scrolleado. */
+.nav.is-open {
+  background: var(--bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
 
 /* mobile menu panel */
 .nav__links.is-open {
