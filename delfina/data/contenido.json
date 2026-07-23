@@ -1,42 +1,66 @@
 {
   "nombre": "Delfina Molteni",
   "subtitulo": "Portafolio",
-  "bio": "Un espacio para reunir mi trabajo: sesiones, series y proyectos que me gusta compartir. Cada sección es un mundo con su propia historia.",
-  "portada": "img/uploads/hero.svg",
+  "lema": "Fotografía de producto, eventos sociales y gastronomía.",
+  "bio": "Soy Delfina Molteni, fotógrafa y creadora visual con una mirada versátil y en constante evolución. Mi trabajo abarca distintos universos —gastronomía, eventos, moda, arquitectura y animales— buscando en cada uno una identidad propia y profundidad estética.",
+  "portada": "img/uploads/congreso.jpg",
+  "retrato": "img/uploads/delfi-retrato.jpg",
   "email": "",
   "instagram": "",
   "sesiones": [
     {
-      "titulo": "Retratos",
-      "categoria": "Retrato",
-      "descripcion": "Una serie de retratos con luz natural.",
-      "portada": "img/uploads/m1.svg",
+      "titulo": "Gastronomía",
+      "categoria": "Gastronomía",
+      "descripcion": "Cafés, mesas y platos con mirada de detalle.",
+      "portada": "img/uploads/gastro-desayuno.jpg",
       "fotos": [
-        { "src": "img/uploads/m1.svg", "texto": "" },
-        { "src": "img/uploads/m4.svg", "texto": "" },
-        { "src": "img/uploads/m7.svg", "texto": "" }
+        { "src": "img/uploads/gastro-desayuno.jpg", "texto": "" },
+        { "src": "img/uploads/gastro-granola.jpg", "texto": "" },
+        { "src": "img/uploads/gastro-copas.jpg", "texto": "" }
       ]
     },
     {
-      "titulo": "Naturaleza",
-      "categoria": "Paisaje",
-      "descripcion": "Paisajes y texturas del exterior.",
-      "portada": "img/uploads/m2.svg",
+      "titulo": "Eventos",
+      "categoria": "Eventos",
+      "descripcion": "Recitales, fiestas y la energía de la noche.",
+      "portada": "img/uploads/evento-luces.jpg",
       "fotos": [
-        { "src": "img/uploads/m2.svg", "texto": "" },
-        { "src": "img/uploads/m5.svg", "texto": "" },
-        { "src": "img/uploads/m9.svg", "texto": "" }
+        { "src": "img/uploads/evento-pareja.jpg", "texto": "" },
+        { "src": "img/uploads/evento-luces.jpg", "texto": "" },
+        { "src": "img/uploads/evento-recital.jpg", "texto": "" }
       ]
     },
     {
-      "titulo": "Estudio",
-      "categoria": "Estudio",
-      "descripcion": "Trabajo en estudio, tématicas y experimentos.",
-      "portada": "img/uploads/m3.svg",
+      "titulo": "Moda",
+      "categoria": "Moda",
+      "descripcion": "Pruebas, taller y editoriales de moda.",
+      "portada": "img/uploads/moda-corset.jpg",
       "fotos": [
-        { "src": "img/uploads/m3.svg", "texto": "" },
-        { "src": "img/uploads/m6.svg", "texto": "" },
-        { "src": "img/uploads/m8.svg", "texto": "" }
+        { "src": "img/uploads/moda-prueba.jpg", "texto": "" },
+        { "src": "img/uploads/moda-taller.jpg", "texto": "" },
+        { "src": "img/uploads/moda-corset.jpg", "texto": "" }
+      ]
+    },
+    {
+      "titulo": "Arquitectura",
+      "categoria": "Arquitectura",
+      "descripcion": "Ciudad, fachadas y patrimonio.",
+      "portada": "img/uploads/arq-edificio.jpg",
+      "fotos": [
+        { "src": "img/uploads/arq-edificio.jpg", "texto": "" },
+        { "src": "img/uploads/arq-estatua.jpg", "texto": "" },
+        { "src": "img/uploads/congreso.jpg", "texto": "" }
+      ]
+    },
+    {
+      "titulo": "Animales",
+      "categoria": "Animales",
+      "descripcion": "Retratos de mascotas y compañeros.",
+      "portada": "img/uploads/animal-perro.jpg",
+      "fotos": [
+        { "src": "img/uploads/animal-perro.jpg", "texto": "" },
+        { "src": "img/uploads/animal-gato-negro.jpg", "texto": "" },
+        { "src": "img/uploads/animal-gato-naranja.jpg", "texto": "" }
       ]
     }
   ]

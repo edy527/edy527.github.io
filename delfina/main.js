@@ -56,6 +56,11 @@
         n.textContent = data.subtitulo;
       });
     }
+    if (data.lema) {
+      Array.prototype.forEach.call(document.querySelectorAll("[data-nav-lema]"), function (n) {
+        n.textContent = data.lema;
+      });
+    }
     if (data.bio) {
       Array.prototype.forEach.call(document.querySelectorAll("[data-nav-bio]"), function (n) {
         n.textContent = data.bio;
@@ -63,6 +68,9 @@
     }
     if (data.portada) {
       var h = $("#heroImg"); if (h) h.src = data.portada;
+    }
+    if (data.retrato) {
+      var r = $("#retratoImg"); if (r) r.src = data.retrato;
     }
   }
 

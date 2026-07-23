@@ -29,9 +29,11 @@ collections:
         format: "json"
         fields:
           - { label: "Tu nombre", name: "nombre", widget: "string", hint: "Aparece en el título grande y en el menú." }
-          - { label: "Subtítulo", name: "subtitulo", widget: "string", required: false, hint: "Ej: Fotografía · Retratos, o simplemente 'Portafolio'." }
+          - { label: "Subtítulo", name: "subtitulo", widget: "string", required: false, hint: "La palabra chica arriba del nombre. Ej: 'Portafolio'." }
+          - { label: "Lema / frase de portada", name: "lema", widget: "string", required: false, hint: "La frase debajo del nombre. Ej: 'Fotografía de producto, eventos y gastronomía.'" }
           - { label: "Sobre mí", name: "bio", widget: "text", hint: "Un párrafo corto sobre vos y tu trabajo." }
           - { label: "Foto de portada", name: "portada", widget: "image", required: false, hint: "La imagen grande de arriba de todo." }
+          - { label: "Tu retrato (Sobre mí)", name: "retrato", widget: "image", required: false, hint: "La foto tuya que aparece en la sección 'Sobre mí'." }
           - { label: "Email de contacto", name: "email", widget: "string", required: false, hint: "Opcional. Se muestra como botón de contacto." }
           - { label: "Instagram", name: "instagram", widget: "string", required: false, hint: "Tu usuario (ej: @delfina) o el link completo." }
 
