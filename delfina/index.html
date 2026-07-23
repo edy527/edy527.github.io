@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delfina Molteni · Portafolio</title>
+  <meta name="description" content="Portafolio de Delfina Molteni. Sesiones, series y proyectos." />
+  <meta name="author" content="Delfina Molteni" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Delfina Molteni · Portafolio" />
+  <meta property="og:description" content="Sesiones, series y proyectos." />
+  <meta property="og:image" content="img/uploads/hero.svg" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📷</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=20260723" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand" data-nav-name>Delfina Molteni</a>
+    <nav class="nav__links">
+      <a href="#trabajo">Trabajo</a>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__media">
+      <img id="heroImg" src="img/uploads/hero.svg" alt="Portada" />
+    </div>
+    <div class="hero__inner">
+      <p class="hero__eyebrow reveal" data-nav-subtitle>Portafolio</p>
+      <h1 class="hero__title reveal" data-nav-name>Delfina Molteni</h1>
+      <p class="hero__lead reveal" data-nav-bio>
+        Un espacio para reunir mi trabajo: sesiones, series y proyectos que me gusta compartir.
+      </p>
+      <a href="#trabajo" class="hero__cta reveal">Ver el trabajo</a>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- TRABAJO / GALERÍA -->
+  <main id="trabajo" class="work">
+    <div class="work__head reveal">
+      <h2 class="section__title">Trabajo</h2>
+      <p class="section__sub">Explorá por sección o mirá todo junto.</p>
+    </div>
+
+    <div class="filters" id="filters" role="tablist" aria-label="Filtrar por sección"></div>
+
+    <div class="gallery" id="gallery">
+      <!-- Contenido cargado desde data/contenido.json -->
+      <p class="gallery__empty" id="galleryEmpty" hidden>
+        Todavía no hay fotos cargadas. Pronto habrá novedades.
+      </p>
+    </div>
+  </main>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="about">
+    <div class="about__inner reveal">
+      <h2 class="section__title">Sobre mí</h2>
+      <p class="about__text" data-nav-bio>
+        Un espacio para reunir mi trabajo: sesiones, series y proyectos que me gusta compartir.
+        Cada sección es un mundo con su propia historia.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <footer id="contacto" class="footer">
+    <div class="footer__inner reveal">
+      <h2 class="footer__title">Trabajemos juntas</h2>
+      <div class="footer__links" id="contactLinks">
+        <!-- links de contacto inyectados por JS -->
+      </div>
+      <p class="footer__credit">© <span id="year"></span> Delfina Molteni</p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Vista ampliada">
+    <button class="lightbox__close" id="lbClose" aria-label="Cerrar">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Anterior">&#8249;</button>
+    <figure class="lightbox__fig">
+      <img id="lbImg" src="" alt="" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Siguiente">&#8250;</button>
+  </div>
+
+  <script defer src="main.js?v=20260723"></script>
+
+  <!-- Netlify Identity: hace funcionar los links de invitación al panel -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function (user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function () { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

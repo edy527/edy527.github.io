@@ -1,0 +1,12 @@
+# Configuración de Netlify para el portafolio de Delfina.
+# Publica solo la carpeta /delfina como raíz del sitio.
+# (No afecta a GitHub Pages, que ignora este archivo.)
+[build]
+  publish = "delfina"
+  command = ""
+
+# Redirección para que las rutas del panel funcionen bien.
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 301

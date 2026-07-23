@@ -1,0 +1,43 @@
+{
+  "nombre": "Delfina Molteni",
+  "subtitulo": "Portafolio",
+  "bio": "Un espacio para reunir mi trabajo: sesiones, series y proyectos que me gusta compartir. Cada sección es un mundo con su propia historia.",
+  "portada": "img/uploads/hero.svg",
+  "email": "",
+  "instagram": "",
+  "sesiones": [
+    {
+      "titulo": "Retratos",
+      "categoria": "Retrato",
+      "descripcion": "Una serie de retratos con luz natural.",
+      "portada": "img/uploads/m1.svg",
+      "fotos": [
+        { "src": "img/uploads/m1.svg", "texto": "" },
+        { "src": "img/uploads/m4.svg", "texto": "" },
+        { "src": "img/uploads/m7.svg", "texto": "" }
+      ]
+    },
+    {
+      "titulo": "Naturaleza",
+      "categoria": "Paisaje",
+      "descripcion": "Paisajes y texturas del exterior.",
+      "portada": "img/uploads/m2.svg",
+      "fotos": [
+        { "src": "img/uploads/m2.svg", "texto": "" },
+        { "src": "img/uploads/m5.svg", "texto": "" },
+        { "src": "img/uploads/m9.svg", "texto": "" }
+      ]
+    },
+    {
+      "titulo": "Estudio",
+      "categoria": "Estudio",
+      "descripcion": "Trabajo en estudio, tématicas y experimentos.",
+      "portada": "img/uploads/m3.svg",
+      "fotos": [
+        { "src": "img/uploads/m3.svg", "texto": "" },
+        { "src": "img/uploads/m6.svg", "texto": "" },
+        { "src": "img/uploads/m8.svg", "texto": "" }
+      ]
+    }
+  ]
+}

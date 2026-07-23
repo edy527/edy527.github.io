@@ -1,0 +1,57 @@
+# ---------------------------------------------------------------
+# Panel de carga (Decap CMS) para el portafolio de Delfina
+# ---------------------------------------------------------------
+backend:
+  name: git-gateway
+  branch: main
+
+# Idioma del panel
+locale: es
+
+# Dónde se guardan las fotos subidas.
+#   media_folder  = ruta dentro del repositorio (con "delfina/")
+#   public_folder = ruta relativa que se guarda en el sitio (sin "delfina/")
+media_folder: "delfina/img/uploads"
+public_folder: "img/uploads"
+
+# Mensaje de los commits automáticos
+site_url: https://edy527.github.io/delfina/
+display_url: https://edy527.github.io/delfina/
+
+collections:
+  - name: "sitio"
+    label: "Mi portafolio"
+    description: "Editá tu portada, tu descripción y tus sesiones de fotos."
+    files:
+      - name: "contenido"
+        label: "Contenido del sitio"
+        file: "delfina/data/contenido.json"
+        format: "json"
+        fields:
+          - { label: "Tu nombre", name: "nombre", widget: "string", hint: "Aparece en el título grande y en el menú." }
+          - { label: "Subtítulo", name: "subtitulo", widget: "string", required: false, hint: "Ej: Fotografía · Retratos, o simplemente 'Portafolio'." }
+          - { label: "Sobre mí", name: "bio", widget: "text", hint: "Un párrafo corto sobre vos y tu trabajo." }
+          - { label: "Foto de portada", name: "portada", widget: "image", required: false, hint: "La imagen grande de arriba de todo." }
+          - { label: "Email de contacto", name: "email", widget: "string", required: false, hint: "Opcional. Se muestra como botón de contacto." }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false, hint: "Tu usuario (ej: @delfina) o el link completo." }
+
+          - label: "Sesiones / Secciones"
+            name: "sesiones"
+            label_singular: "Sesión"
+            widget: "list"
+            summary: "{{fields.titulo}}"
+            hint: "Cada sesión es una sección del sitio. Agregá las que quieras."
+            fields:
+              - { label: "Título", name: "titulo", widget: "string", hint: "Ej: Retratos, Bodas, Blanco y negro..." }
+              - { label: "Categoría / temática", name: "categoria", widget: "string", required: false, hint: "Opcional. Ej: Retrato, Evento, Estudio." }
+              - { label: "Descripción", name: "descripcion", widget: "text", required: false, hint: "Opcional. Una línea sobre esta sesión." }
+              - { label: "Foto de portada de la sesión", name: "portada", widget: "image", required: false }
+              - label: "Fotos"
+                name: "fotos"
+                label_singular: "Foto"
+                widget: "list"
+                summary: "{{fields.texto}}"
+                hint: "Arrastrá o subí tus fotos acá. Podés reordenarlas."
+                fields:
+                  - { label: "Imagen", name: "src", widget: "image" }
+                  - { label: "Texto (opcional)", name: "texto", widget: "string", required: false, hint: "Un pie de foto, si querés." }
