@@ -148,9 +148,16 @@ a { color: inherit; text-decoration: none; }
 .hero__media::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(20,16,12,.72) 0%, rgba(20,16,12,.15) 45%, rgba(20,16,12,.25) 100%);
+  background: linear-gradient(to top,
+    rgba(16,12,9,.90) 0%,
+    rgba(16,12,9,.72) 28%,
+    rgba(16,12,9,.35) 55%,
+    rgba(16,12,9,.28) 100%);
 }
-.hero__inner { position: relative; z-index: 1; color: var(--white); max-width: 760px; }
+.hero__inner {
+  position: relative; z-index: 1; color: var(--white); max-width: 760px;
+  text-shadow: 0 2px 30px rgba(0,0,0,.45);
+}
 .hero__eyebrow {
   text-transform: uppercase;
   letter-spacing: .32em;
