@@ -1,12 +1,42 @@
-# Configuración de Netlify para el portafolio de Delfina.
+# ============================================================
+# Configuración de Netlify — Portafolio de Delfina Molteni
 # Publica solo la carpeta /delfina como raíz del sitio.
 # (No afecta a GitHub Pages, que ignora este archivo.)
+# ============================================================
 [build]
   publish = "delfina"
   command = ""
 
-# Redirección para que las rutas del panel funcionen bien.
+# Redirección para que la ruta del panel funcione bien.
 [[redirects]]
   from = "/admin"
   to = "/admin/"
   status = 301
+
+# ------------------------------------------------------------
+# CAPA DE SEGURIDAD — cabeceras HTTP para todo el sitio
+# ------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Fuerza HTTPS durante 1 año (incluye subdominios).
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # Evita que el navegador "adivine" el tipo de archivo (anti-MIME-sniffing).
+    X-Content-Type-Options = "nosniff"
+    # Nadie puede incrustar el sitio en un iframe (anti-clickjacking).
+    X-Frame-Options = "DENY"
+    # No filtra la URL completa a sitios externos.
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Desactiva APIs sensibles que el sitio no usa.
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+    # Aísla el contexto de navegación.
+    Cross-Origin-Opener-Policy = "same-origin"
+    # Content-Security-Policy: sólo se permiten los orígenes que el sitio usa
+    # (fuentes de Google, panel Decap desde unpkg, y Netlify Identity/Git Gateway).
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com; connect-src 'self' https://identity.netlify.com https://unpkg.com https://api.github.com https://api.netlify.com; frame-src 'self' https://identity.netlify.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; form-action 'self'"
+
+# Cache largo para imágenes y assets (mejor performance).
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
