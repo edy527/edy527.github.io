@@ -1,0 +1,7 @@
+# Delfina Molteni — Portafolio
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://edy527.github.io/delfina/sitemap.xml
+# Al mudar al dominio propio, cambiar por: https://delfinamolteni.com.ar/sitemap.xml
