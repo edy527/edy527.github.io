@@ -39,9 +39,11 @@
     }
     body::after{
       content:""; position:fixed; inset:0; z-index:-1;
-      background:
-        radial-gradient(120% 80% at 50% 0%, rgba(20,14,10,.55), rgba(16,11,8,.82) 60%, rgba(12,9,7,.92) 100%);
-      backdrop-filter:blur(3px);
+      background:linear-gradient(to bottom,
+        rgba(15,11,8,.64) 0%,
+        rgba(15,11,8,.36) 30%,
+        rgba(15,11,8,.30) 62%,
+        rgba(15,11,8,.48) 100%);
     }
     .wrap{width:100%; max-width:480px; text-align:center; animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
     @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -51,48 +53,50 @@
       object-fit:cover; border:3px solid rgba(255,255,255,.9);
       box-shadow:0 10px 40px rgba(0,0,0,.45);
     }
-    .name{font-family:var(--serif); font-weight:400; font-size:clamp(1.9rem,7vw,2.5rem); letter-spacing:.01em; line-height:1.05}
+    .name{font-family:var(--serif); font-weight:400; font-size:clamp(1.9rem,7vw,2.5rem); letter-spacing:.01em; line-height:1.05; text-shadow:0 2px 16px rgba(0,0,0,.55)}
     .role{
       text-transform:uppercase; letter-spacing:.26em; font-size:.72rem; font-weight:500;
-      color:rgba(255,255,255,.82); margin:.6rem 0 0;
+      color:rgba(255,255,255,.9); margin:.6rem 0 0; text-shadow:0 1px 10px rgba(0,0,0,.5);
     }
     .bio{
-      font-size:.98rem; line-height:1.6; color:rgba(255,255,255,.9);
-      max-width:34ch; margin:1rem auto 0; text-wrap:balance;
+      font-size:.98rem; line-height:1.6; color:rgba(255,255,255,.95);
+      max-width:34ch; margin:1rem auto 0; text-wrap:balance; text-shadow:0 1px 12px rgba(0,0,0,.55);
     }
 
     /* Iconos sociales */
     .socials{display:flex; gap:1.1rem; justify-content:center; margin:1.3rem 0 .4rem}
     .socials a{
-      width:44px; height:44px; display:grid; place-items:center; border-radius:50%;
-      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22);
-      color:var(--white); transition:transform .2s, background .2s;
-      -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+      width:46px; height:46px; display:grid; place-items:center; border-radius:50%;
+      background:rgba(255,255,255,.96); border:1px solid rgba(255,255,255,.9);
+      color:var(--ink); box-shadow:0 4px 16px rgba(0,0,0,.22);
+      transition:transform .2s, box-shadow .2s;
     }
-    .socials a:hover{transform:translateY(-2px); background:rgba(255,255,255,.22)}
+    .socials a:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.32)}
     .socials svg{width:21px; height:21px}
 
     /* Botones de enlaces */
     .links{display:flex; flex-direction:column; gap:.85rem; margin-top:1.6rem}
     .btn{
       display:flex; align-items:center; gap:.9rem; width:100%;
-      padding:1.05rem 1.15rem; border-radius:16px; text-decoration:none;
-      font-size:1rem; font-weight:500; letter-spacing:.01em;
-      background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.24);
-      color:var(--white); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
-      transition:transform .2s ease, background .25s ease, box-shadow .25s ease;
+      padding:1.05rem 1.2rem; border-radius:12px; text-decoration:none;
+      font-size:.98rem; font-weight:600; letter-spacing:.01em;
+      background:rgba(255,255,255,.96); border:1px solid rgba(255,255,255,.85);
+      color:var(--ink); box-shadow:0 6px 22px rgba(0,0,0,.22);
+      transition:transform .18s ease, box-shadow .25s ease, background .25s ease;
     }
-    .btn:hover{transform:translateY(-2px); background:rgba(255,255,255,.22); box-shadow:0 12px 30px rgba(0,0,0,.35)}
+    .btn:hover{transform:translateY(-2px); background:#fff; box-shadow:0 14px 30px rgba(0,0,0,.3)}
     .btn:active{transform:translateY(0)}
-    .btn__ic{width:26px; height:26px; flex:0 0 26px; display:grid; place-items:center}
+    .btn__ic{width:26px; height:26px; flex:0 0 26px; display:grid; place-items:center; color:var(--accent-deep)}
     .btn__ic svg{width:24px; height:24px}
     .btn__label{flex:1; text-align:center; padding-right:26px}
     /* Botón principal (portafolio) */
     .btn--primary{
       background:linear-gradient(135deg, var(--accent), var(--accent-deep));
-      border-color:transparent; font-weight:600;
+      border-color:transparent; color:var(--white);
+      box-shadow:0 8px 26px rgba(169,96,63,.5);
     }
-    .btn--primary:hover{background:linear-gradient(135deg, #cd875f, #b56a3f)}
+    .btn--primary .btn__ic{color:var(--white)}
+    .btn--primary:hover{background:linear-gradient(135deg, #cd875f, #b56a3f); box-shadow:0 14px 32px rgba(169,96,63,.62)}
 
     .foot{margin-top:2rem; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.5)}
     .foot a{color:rgba(255,255,255,.7); text-decoration:none}
@@ -109,7 +113,7 @@
     </p>
 
     <div class="socials">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+      <a href="https://www.instagram.com/delfimolteni.ph" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/>
           <circle cx="12" cy="12" r="4.2"/>
@@ -134,7 +138,7 @@
         <span class="btn__label">Ver mi portafolio</span>
       </a>
 
-      <a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener">
+      <a class="btn" href="https://www.instagram.com/delfimolteni.ph" target="_blank" rel="noopener">
         <span class="btn__ic">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/>
