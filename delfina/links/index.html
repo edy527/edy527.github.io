@@ -120,7 +120,7 @@
           <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
         </svg>
       </a>
-      <a href="https://wa.me/5491121705762" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <a class="js-wa" href="#" data-w="NTQ5MTEyMTcwNTc2Mg==" target="_blank" rel="noopener" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.8c2.17 0 4.2.85 5.74 2.38a8.06 8.06 0 0 1 2.38 5.73c0 4.47-3.64 8.11-8.12 8.11a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.12.82.83-3.04-.19-.31a8.05 8.05 0 0 1-1.24-4.29c0-4.47 3.64-8.11 8.12-8.11Zm4.68 10.29c-.26-.13-1.51-.75-1.75-.83-.23-.09-.4-.13-.57.13-.17.26-.65.83-.8 1-.15.17-.29.19-.55.06-.26-.13-1.08-.4-2.06-1.27-.76-.68-1.28-1.51-1.43-1.77-.15-.26-.02-.4.11-.53.12-.12.26-.29.39-.44.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.57-1.38-.78-1.89-.21-.5-.42-.43-.57-.44l-.49-.01c-.17 0-.44.06-.67.32-.23.26-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.3 3.81.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.51-.62 1.72-1.21.21-.6.21-1.11.15-1.21-.06-.11-.23-.17-.49-.3Z"/>
         </svg>
@@ -149,7 +149,7 @@
         <span class="btn__label">Mi Instagram</span>
       </a>
 
-      <a class="btn" href="https://wa.me/5491121705762" target="_blank" rel="noopener">
+      <a class="btn js-wa" href="#" data-w="NTQ5MTEyMTcwNTc2Mg==" target="_blank" rel="noopener">
         <span class="btn__ic">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.8c2.17 0 4.2.85 5.74 2.38a8.06 8.06 0 0 1 2.38 5.73c0 4.47-3.64 8.11-8.12 8.11a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.12.82.83-3.04-.19-.31a8.05 8.05 0 0 1-1.24-4.29c0-4.47 3.64-8.11 8.12-8.11Zm4.68 10.29c-.26-.13-1.51-.75-1.75-.83-.23-.09-.4-.13-.57.13-.17.26-.65.83-.8 1-.15.17-.29.19-.55.06-.26-.13-1.08-.4-2.06-1.27-.76-.68-1.28-1.51-1.43-1.77-.15-.26-.02-.4.11-.53.12-.12.26-.29.39-.44.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.57-1.38-.78-1.89-.21-.5-.42-.43-.57-.44l-.49-.01c-.17 0-.44.06-.67.32-.23.26-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.3 3.81.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.51-.62 1.72-1.21.21-.6.21-1.11.15-1.21-.06-.11-.23-.17-.49-.3Z"/>
@@ -161,5 +161,27 @@
 
     <p class="foot">Delfina Molteni · Fotografía</p>
   </main>
+
+  <script>
+    // Anti-scraping: el número de WhatsApp no está en el HTML.
+    // Se arma en el navegador recién al usar el botón, para que los
+    // bots que sólo leen el código no puedan levantarlo.
+    (function () {
+      function build(el) {
+        try {
+          var n = atob(el.getAttribute("data-w"));
+          el.setAttribute("href", "https://wa.me/" + n);
+        } catch (e) {}
+      }
+      var links = document.querySelectorAll(".js-wa");
+      Array.prototype.forEach.call(links, function (el) {
+        // Se resuelve al primer toque/hover, no antes.
+        var arm = function () { build(el); el.removeEventListener("pointerdown", arm); el.removeEventListener("mouseenter", arm); };
+        el.addEventListener("pointerdown", arm);
+        el.addEventListener("mouseenter", arm);
+        el.addEventListener("click", function () { build(el); });
+      });
+    })();
+  </script>
 </body>
 </html>
